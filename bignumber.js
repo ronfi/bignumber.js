@@ -2393,10 +2393,9 @@
         */
         P.bitShift = function (k) {
             intCheck(k, -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER);
-            let n = this;
 
-            n = new BigNumber((n * new BigNumber(2).pow(k))).integerValue(1);
-            return n;
+            let n = this;
+            return new BigNumber((n * new BigNumber(2).pow(k))).integerValue(1);
         };
 
 
