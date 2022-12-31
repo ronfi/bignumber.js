@@ -2412,7 +2412,7 @@
         P.and = function (k) {
             intCheck(k, 0, MAX_UINT64);
 
-            let n = this.integerValue(1);
+            let n = this.integerValue(1).toNumber();
             return n & k;
         }
 
