@@ -2395,7 +2395,8 @@
             intCheck(k, -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER);
             let n = this;
 
-            return new BigNumber((n * new BigNumber(2).pow(k))).integerValue(1);
+            n = new BigNumber((n * new BigNumber(2).pow(k))).integerValue(1);
+            return n;
 
             // return isValidInt(k, -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER, 16, 'argument')
             //     ? n * new BigNumber(2).pow(k)
