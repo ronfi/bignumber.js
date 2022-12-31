@@ -35,6 +35,7 @@
      *      plus                            |
      *      precision                sd     |
      *      shiftedBy                       |
+     *      bitShift                        |
      *      squareRoot               sqrt   |
      *      toExponential                   |
      *      toFixed                         |
