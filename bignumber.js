@@ -2397,12 +2397,6 @@
 
             n = new BigNumber((n * new BigNumber(2).pow(k))).integerValue(1);
             return n;
-
-            // return isValidInt(k, -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER, 16, 'argument')
-            //     ? n * new BigNumber(2).pow(k)
-            //     : new BigNumber(n.c && n.c[0] && (k < -MAX_SAFE_INTEGER || k > MAX_SAFE_INTEGER)
-            //         ? n.s * (k < 0 ? 0 : 1 / 0)
-            //         : n);
         };
 
 

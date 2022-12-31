@@ -32,6 +32,7 @@
  *      plus                            |
  *      precision                sd     |
  *      shiftedBy                       |
+ *      bitShift                        |
  *      squareRoot               sqrt   |
  *      toExponential                   |
  *      toFixed                         |
@@ -2355,6 +2356,24 @@ function clone(configObject) {
   P.shiftedBy = function (k) {
     intCheck(k, -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER);
     return this.times('1e' + k);
+  };
+
+
+  /*
+        * Return a new BigNumber whose value is the value of this BigNumber bit shifted by k places
+        * (powers of 2). Shift to the right if n > 0, and to the left if n < 0.
+        *
+        * k {number} Integer, -MAX_SAFE_INTEGER to MAX_SAFE_INTEGER inclusive.
+        *
+        * If k is out of range and ERRORS is false, the result will be ±0 if k < 0, or ±Infinity
+        * otherwise.
+        */
+  P.bitShift = function (k) {
+    intCheck(k, -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER);
+    let n = this;
+
+    n = new BigNumber((n * new BigNumber(2).pow(k))).integerValue(1);
+    return n;
   };
 
 
