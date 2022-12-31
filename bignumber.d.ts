@@ -1224,6 +1224,21 @@ export declare class BigNumber implements BigNumber.Instance {
   bitShift(n: number): BigNumber;
 
   /**
+   * Returns a Uint64 Number whose value is the value of this BigNumber bit and with n
+   *
+   *
+   * Throws if `n` is invalid.
+   *
+   * ```ts
+   * x = new BigNumber(10)
+   * x.and(3)                      // '2'
+   * ```
+   *
+   * @param n The shift value, integer, -9007199254740991 to 9007199254740991.
+   */
+  bitShift(n: number): number;
+
+  /**
    * Returns a BigNumber whose value is the square root of the value of this BigNumber, rounded
    * according to the current `DECIMAL_PLACES` and `ROUNDING_MODE` settings.
    *

@@ -36,6 +36,7 @@
      *      precision                sd     |
      *      shiftedBy                       |
      *      bitShift                        |
+     *      and                             |
      *      squareRoot               sqrt   |
      *      toExponential                   |
      *      toFixed                         |
@@ -61,6 +62,7 @@
         BASE = 1e14,
         LOG_BASE = 14,
         MAX_SAFE_INTEGER = 0x1fffffffffffff,         // 2^53 - 1
+        MAX_UINT64 = 2**64 - 1,
         // MAX_INT32 = 0x7fffffff,                   // 2^31 - 1
         POWS_TEN = [1, 10, 100, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8, 1e9, 1e10, 1e11, 1e12, 1e13],
         SQRT_BASE = 1e7,
@@ -2397,6 +2399,22 @@
             let n = this;
             return new BigNumber((n * new BigNumber(2).pow(k))).integerValue(1);
         };
+
+
+        /*
+        * Return a new Number whose value is the value of this BigNumber bit and.
+        *
+        * k {number} Integer, -MAX_SAFE_INTEGER to MAX_SAFE_INTEGER inclusive.
+        *
+        * If k is out of range and ERRORS is false, the result will be ±0 if k < 0, or ±Infinity
+        * otherwise.
+        */
+        P.and = function (k) {
+            intCheck(k, 0, MAX_UINT64);
+
+            let n = this.integerValue(1);
+            return n & k;
+        }
 
 
         /*
